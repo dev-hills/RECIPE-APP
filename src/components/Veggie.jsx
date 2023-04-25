@@ -24,9 +24,9 @@ function Veggie() {
           return api.json();
         })
         .then((data) => {
-          // setVeggie(data.recipes);
-          // sessionStorage.setItem("veggie", JSON.stringify(data.recipes));
-          console.log(data);
+          setVeggie(data.recipes);
+          sessionStorage.setItem("veggie", JSON.stringify(data.recipes));
+          // console.log(data);
         });
     }
   };

@@ -24,9 +24,9 @@ function Popular() {
           return api.json();
         })
         .then((data) => {
-          // setPopular(data.recipes);
-          // sessionStorage.setItem("popular", JSON.stringify(data.recipes));
-          console.log(data);
+          setPopular(data.recipes);
+          sessionStorage.setItem("popular", JSON.stringify(data.recipes));
+          // console.log(data);
         });
     }
   };
