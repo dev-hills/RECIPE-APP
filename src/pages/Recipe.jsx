@@ -24,33 +24,44 @@ function Recipe() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params.name]);
 
-  return <DetailWrapper>
-    <div>
-      <h2>{details.title}</h2>
-      <img src={details.image} alt="" />
-    </div>
+  return (
+    <DetailWrapper>
+      <div>
+        <h2>{details.title}</h2>
+        <img src={details.image} alt="" />
+      </div>
 
-    <Info>
-      <Button className={activeTab === "instructions" ? "active" : ""} onClick={() => setActiveTab("instructions")}>Instructions</Button>
-      <Button className={activeTab === "ingredients" ? "active" : ""} onClick={() => setActiveTab("ingredients")}>Ingredients</Button>
+      <Info>
+        <Button
+          className={activeTab === "instructions" ? "active" : ""}
+          onClick={() => setActiveTab("instructions")}
+        >
+          Instructions
+        </Button>
+        <Button
+          className={activeTab === "ingredients" ? "active" : ""}
+          onClick={() => setActiveTab("ingredients")}
+        >
+          Ingredients
+        </Button>
 
-      {activeTab === "instructions" && (
-        <div>
-          <h3 dangerouslySetInnerHTML={{__html: details.summary}}></h3>
-      <h3 dangerouslySetInnerHTML={{__html: details.instructions}}></h3>
-        </div>
-      )}
-      
-    {activeTab === "ingredients" && (
-      <ul>
-        {details.extendedIngredients.map((ingredient) => (
-          <li key={ingredient.id}>{ingredient.original}</li>
-        ))}
-      </ul>
-    )}
-      
-    </Info>
-  </DetailWrapper>
+        {activeTab === "instructions" && (
+          <div>
+            <h3 dangerouslySetInnerHTML={{ __html: details.summary }}></h3>
+            <h3 dangerouslySetInnerHTML={{ __html: details.instructions }}></h3>
+          </div>
+        )}
+
+        {activeTab === "ingredients" && (
+          <ul>
+            {details.extendedIngredients.map((ingredient) => (
+              <li key={ingredient.id}>{ingredient.original}</li>
+            ))}
+          </ul>
+        )}
+      </Info>
+    </DetailWrapper>
+  );
 }
 
 const DetailWrapper = styled.div`
@@ -63,6 +74,7 @@ const DetailWrapper = styled.div`
   }
   h2 {
     margin-bottom: 2rem;
+    color: white;
   }
   li {
     font-size: 1.2rem;
@@ -80,9 +92,9 @@ const Button = styled.button`
   border: 2px solid black;
   margin-right: 2rem;
   font-weight: 600;
-`
+`;
 
 const Info = styled.div`
-margin-left: 10rem;
-`
+  margin-left: 10rem;
+`;
 export default Recipe;
