@@ -26,17 +26,17 @@ function Veggie() {
         .then((data) => {
           setVeggie(data.recipes);
           sessionStorage.setItem("veggie", JSON.stringify(data.recipes));
-          // console.log(data);
+         
         });
     }
   };
 
   return (
     <Wrapper>
-      <h3>Our Vegetarian Picks</h3>
+      <h3>Our Veggie Picks</h3>
       <Splide
         options={{
-          perPage: 3,
+          perPage: 4,
           perMove: 1,
           arrows: false,
           pagination: false,
